@@ -121,7 +121,7 @@
             "app:mongodb": [
               "FEDn MongoDB"
             ],
-            "app:docker_registry": [
+            "app:docker-registry": [
               "Docker Registry"
             ],
             "reducer.pullPolicy": "IfNotPresent"
