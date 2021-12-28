@@ -60,27 +60,27 @@
         },
         "apps": {
             "minio-vol": {
-              "slug": "volume",
+              "slug": "volume-k8s",
               "volume.size": "20Gi",
               "permission": "private"
             },
             "reg-vol": {
-                "slug": "volume",
+                "slug": "volume-k8s",
                 "volume.size": "20Gi",
                 "permission": "private"
             },
             "project-vol": {
-                "slug": "volume",
+                "slug": "volume-k8s",
                 "volume.size": "20Gi",
                 "permission": "private"
             },
             "mongodb-vol": {
-                "slug": "volume",
+                "slug": "volume-k8s",
                 "volume.size": "5Gi",
                 "permission": "private"
             },
             "combiner-vol": {
-                "slug": "volume",
+                "slug": "volume-k8s",
                 "volume.size": "5Gi",
                 "permission": "private"
             },
