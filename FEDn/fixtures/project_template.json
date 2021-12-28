@@ -86,13 +86,13 @@
             },
             "S3 store": {
                 "slug": "minio",
-                "app:volume": ["minio-vol"],
+                "app:volume-k8s": ["minio-vol"],
                 "credentials.access_key": "accesskey2",
                 "credentials.secret_key": "secretkey193"
             },
             "FEDn MongoDB": {
                 "slug": "mongodb",
-                "app:volume": ["mongodb-vol"],
+                "app:volume-k8s": ["mongodb-vol"],
                 "credentials.username": "admin",
                 "credentials.password": "password"
             },
@@ -102,12 +102,12 @@
             },
             "Docker Registry": {
                 "slug": "docker-registry",
-                "app:volume": ["reg-vol"],
+                "app:volume-k8s": ["reg-vol"],
                 "credentials.username": "username123",
                 "credentials.password": "pass999111222"
             },
             "Reducer": {
-                "slug": "reducer",
+                "slug": "fedn-reducer",
                 "S3": "S3 store",
                 "environment": "FEDn Reducer",
                 "app:mongodb": ["FEDn MongoDB"],
@@ -115,9 +115,9 @@
                 "reducer.pullPolicy": "IfNotPresent"
             },
             "Combiner": {
-                "slug": "combiner",
-                "app:volume": ["combiner-vol"],
-                "app:reducer": ["Reducer"],
+                "slug": "fedn-combiner",
+                "app:volume-k8s": ["combiner-vol"],
+                "app:fedn-reducer": ["Reducer"],
                 "environment": "FEDn Combiner",
                 "combiner.pullPolicy": "IfNotPresent"
             }
