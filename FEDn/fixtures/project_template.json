@@ -111,7 +111,7 @@
                 "S3": "S3 store",
                 "environment": "FEDn Reducer",
                 "app:mongodb": ["FEDn MongoDB"],
-                "app:docker_registry": ["Docker Registry"],
+                "app:docker-registry": ["Docker Registry"],
                 "reducer.pullPolicy": "IfNotPresent"
             },
             "Combiner": {
