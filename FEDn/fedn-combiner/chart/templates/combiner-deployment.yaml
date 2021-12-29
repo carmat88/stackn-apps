@@ -47,7 +47,7 @@ spec:
             - mountPath: /config/settings.yaml
               name: combiner-config
               subPath: settings.yaml
-            {{- range $key, $value := .Values.apps.volume }}
+            {{- range $key, $value := .Values.apps.volume-k8s }}
             - name: {{ $key }}
               mountPath: /tmp/models
             {{- end }}
@@ -62,7 +62,7 @@ spec:
             items:
             - key: settings.yaml
               path: settings.yaml
-        {{- range $key, $value := .Values.apps.volume }}
+        {{- range $key, $value := .Values.apps.volume-k8s }}
         - name: {{ $key }}
           persistentVolumeClaim:
             claimName: {{ $value.release }}

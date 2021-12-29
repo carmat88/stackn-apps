@@ -43,7 +43,7 @@ spec:
             cpu: {{ .Values.flavor.requests.cpu }}
             memory: {{ .Values.flavor.requests.memory }}
         env:
-        {{- range $key, $val := .Values.apps.reducer }}
+        {{- range $key, $val := .Values.apps.fedn-reducer }}
         - name: DISCOVER_HOST
           value: {{ $val.release }}.{{ $val.global.domain }}
         {{- end }}

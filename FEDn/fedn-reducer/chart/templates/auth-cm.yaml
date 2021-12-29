@@ -7,7 +7,7 @@ data:
   config.json: |-
     {
       "auths": {
-        {{- range $key, $value := .Values.apps.docker_registry }}
+        {{- range $key, $value := .Values.apps.docker-registry }}
         {{- $_ := set $ "key" $key }}
         {{- $_ := set $ "value" $value }}
         "{{ $value.release }}.{{ $.Values.global.domain }}": {
