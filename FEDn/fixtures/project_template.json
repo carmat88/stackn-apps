@@ -59,84 +59,68 @@
           }
         },
         "apps": {
-          "minio-vol": {
-            "slug": "volume-k8s",
-            "volume.size": "20Gi",
-            "permission": "private"
-          },
-          "reg-vol": {
-            "slug": "volume-k8s",
-            "volume.size": "20Gi",
-            "permission": "private"
-          },
-          "project-vol": {
-            "slug": "volume-k8s",
-            "volume.size": "20Gi",
-            "permission": "private"
-          },
-          "mongodb-vol": {
-            "slug": "volume-k8s",
-            "volume.size": "5Gi",
-            "permission": "private"
-          },
-          "combiner-vol": {
-            "slug": "volume-k8s",
-            "volume.size": "5Gi",
-            "permission": "private"
-          },
-          "S3 store": {
-            "slug": "minio",
-            "app:volume-k8s": [
-              "minio-vol"
-            ],
-            "credentials.access_key": "accesskey2",
-            "credentials.secret_key": "secretkey193"
-          },
-          "FEDn MongoDB": {
-            "slug": "mongodb",
-            "app:volume-k8s": [
-              "mongodb-vol"
-            ],
-            "credentials.username": "admin",
-            "credentials.password": "password"
-          },
-          "FEDn MongoExpress": {
-            "slug": "mongo-express",
-            "app:mongodb": [
-              "FEDn MongoDB"
-            ]
-          },
-          "Docker Registry": {
-            "slug": "docker-registry",
-            "app:volume-k8s": [
-              "reg-vol"
-            ],
-            "credentials.username": "username123",
-            "credentials.password": "pass999111222"
-          },
-          "Reducer": {
-            "slug": "fedn-reducer",
-            "S3": "S3 store",
-            "environment": "FEDn Reducer",
-            "app:mongodb": [
-              "FEDn MongoDB"
-            ],
-            "app:docker_registry": [
-              "Docker Registry"
-            ],
-            "reducer.pullPolicy": "IfNotPresent"
-          },
-          "Combiner": {
-            "slug": "fedn-combiner",
-            "app:volume-k8s": [
-              "combiner-vol"
-            ],
-            "app:reducer": [
-              "Reducer"
-            ],
-            "environment": "FEDn Combiner",
-            "combiner.pullPolicy": "IfNotPresent"
-          }
+            "minio-vol": {
+              "slug": "volume-k8s",
+              "volume.size": "20Gi",
+              "permission": "private"
+            },
+            "reg-vol": {
+                "slug": "volume-k8s",
+                "volume.size": "20Gi",
+                "permission": "private"
+            },
+            "project-vol": {
+                "slug": "volume-k8s",
+                "volume.size": "20Gi",
+                "permission": "private"
+            },
+            "mongodb-vol": {
+                "slug": "volume-k8s",
+                "volume.size": "5Gi",
+                "permission": "private"
+            },
+            "combiner-vol": {
+                "slug": "volume-k8s",
+                "volume.size": "5Gi",
+                "permission": "private"
+            },
+            "S3 store": {
+                "slug": "minio",
+                "app:volume-k8s": ["minio-vol"],
+                "credentials.access_key": "accesskey2",
+                "credentials.secret_key": "secretkey193"
+            },
+            "FEDn MongoDB": {
+                "slug": "mongodb",
+                "app:volume-k8s": ["mongodb-vol"],
+                "credentials.username": "admin",
+                "credentials.password": "password"
+            },
+            "FEDn MongoExpress": {
+                "slug": "mongo-express",
+                "app:mongodb": ["FEDn MongoDB"]
+            },
+            "Docker Registry": {
+                "slug": "docker-registry",
+                "app:volume-k8s": ["reg-vol"],
+                "credentials.username": "username123",
+                "credentials.password": "pass999111222"
+            },
+            "Reducer": {
+                "slug": "fedn-reducer",
+                "S3": "S3 store",
+                "environment": "FEDn Reducer",
+                "app:mongodb": ["FEDn MongoDB"],
+                "app:docker-registry": ["Docker Registry"],
+                "reducer.pullPolicy": "IfNotPresent"
+            },
+            "Combiner": {
+                "slug": "fedn-combiner",
+                "app:volume-k8s": ["combiner-vol"],
+                "app:fedn-reducer": ["Reducer"],
+                "environment": "FEDn Combiner",
+                "combiner.pullPolicy": "IfNotPresent"
+            }
         },
         "settings": {
           "project-S3": "S3 store"
