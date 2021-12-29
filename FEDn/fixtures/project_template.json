@@ -107,7 +107,7 @@
                 "credentials.password": "pass999111222"
             },
             "Reducer": {
-                "slug": "fedn-reducer",
+                "slug": "reducer",
                 "S3": "S3 store",
                 "environment": "FEDn Reducer",
                 "app:mongodb": ["FEDn MongoDB"],
@@ -117,7 +117,7 @@
             "Combiner": {
                 "slug": "fedn-combiner",
                 "app:volume-k8s": ["combiner-vol"],
-                "app:fedn-reducer": ["Reducer"],
+                "app:reducer": ["Reducer"],
                 "environment": "FEDn Combiner",
                 "combiner.pullPolicy": "IfNotPresent"
             }
