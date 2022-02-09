@@ -2,9 +2,9 @@
     {
         "model": "models.objecttype",
         "fields": {
-        "name": "FEDn Client",
-        "slug": "fedn-client",
-        "apps": []
+            "name": "FEDn Client Model",
+            "slug": "fedn-client",
+            "app_slug": "fedn-client"
         }
     },
     {
